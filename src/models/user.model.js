@@ -6,37 +6,43 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
-    name: {
-      type: String,
-      trim: true,
-      required: [true, "Name is required"],
+    profile: {
+      firstname: {
+        type: String,
+        trim: true,
+        required: [true, "Name is required"],
+      },
+      lastname: {
+        type: String,
+        trim: true,
+        required: [true, "Name is required"],
+      },
+      email: {
+        type: String,
+        trim: true,
+        unique: true,
+        required: [true, "Email is required"],
+      },
+      phoneNumber:{
+        type: Number
+      },
+      password: {
+        type: String,
+      },
+      image: {
+        type: String,
+      },
     },
-    email: {
-      type: String,
-      trim: true,
-      unique: true,
-      required: [true, "Email is required"],
-    },
-    password: {
-      type: String,
-    },
-    image: {
-      type: String,
-    },
-    role: {
-      type: String,
-      trim: true,
-      enum: ["user", "admin"],
-      default: "user"
+    balance:{
+      type: Number
     },
     isActive: {
       type: Boolean,
       default: true,
     },
-    isVerified: {
-      type: Boolean,
-      default: false,
-    }
+    deviceId:{
+      type: String
+    },
   },
   {
     timestamps: true
